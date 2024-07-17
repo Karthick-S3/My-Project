@@ -41,21 +41,27 @@ export class AboutComponent implements OnInit,AfterViewInit {
   }
  
   incrementClientsCounter(): void {
-    if (this.clientsCount < this.clientsTarget) {
-      this.clientsCount += 1;
-      setTimeout(() => this.incrementClientsCounter(), this.clientsIncrementTime);
-    } else {
-      this.clientsCount = this.clientsTarget;
-    }
+    const update = () => {
+      if (this.clientsCount < this.clientsTarget) {
+        this.clientsCount += 1;
+        requestAnimationFrame(update);
+      } else {
+        this.clientsCount = this.clientsTarget;
+      }
+    };
+    update();
   }
- 
+  
   incrementLocationsCounter(): void {
-    if (this.locationsCount < this.locationsTarget) {
-      this.locationsCount += 1;
-      setTimeout(() => this.incrementLocationsCounter(), this.locationsIncrementTime);
-    } else {
-      this.locationsCount = this.locationsTarget;
-    }
+    const update = () => {
+      if (this.locationsCount < this.locationsTarget) {
+        this.locationsCount += 1;
+        requestAnimationFrame(update);
+      } else {
+        this.locationsCount = this.locationsTarget;
+      }
+    };
+    update();
   }
  
   slides = [
