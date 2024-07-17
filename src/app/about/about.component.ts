@@ -7,7 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrl: './about.component.css'
 })
 export class AboutComponent implements OnInit,AfterViewInit {
-  clientsCount: number = 80;
+  clientsCount: number = 500;
   locationsCount: number = 0;
   clientsTarget: number = 1000;
   locationsTarget: number = 10;
